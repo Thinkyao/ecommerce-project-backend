@@ -6,4 +6,5 @@ import com.sia.ecommerce.entities.Customer;
 
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
+	Customer findByEmail(String theEmail);
 }
