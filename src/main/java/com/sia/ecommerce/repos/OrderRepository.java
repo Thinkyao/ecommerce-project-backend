@@ -11,5 +11,5 @@ import com.sia.ecommerce.entities.Order;
 @RepositoryRestResource
 public interface OrderRepository extends CrudRepository<Order, Long> {
 
-	Page<Order> findByCustomerEmail(@Param("email") String email, Pageable pageable);
+	Page<Order> findByCustomerEmailOrderByDateCreatedDesc(@Param("email") String email, Pageable pageable);
 }
