@@ -16,3 +16,13 @@ okta:
   oauth2:
     client-id: 0oa9okz2ehLahixUa5d7
     issuer: https://dev-97778387.okta.com/oauth2/default
+
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-alias: luv2code
+    key-store: 
+      classpath:luv2code-keystore.p12
+    key-store-password: secret
+    key-store-type: PKCS12
