@@ -10,7 +10,6 @@ import java.util.UUID;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import com.sia.ecommerce.dto.PaymentInfo;
@@ -25,13 +24,12 @@ import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
 
 @Service
-@PropertySource(value = { "classpath:application.yaml" })
 public class CheckoutServiceImpl implements CheckoutService {
 
 	private CustomerRepository customerRepository;
 
 	public CheckoutServiceImpl(CustomerRepository customerRepository,
-			@Value("secret:sk_test_51NI5WzCkG81qxo3fTfDBV33ncmZQ4HAPllz32n33FtR7wayXOS2DmnOWL56EzHMSNDjPcMDEEDk08OjQJpMkHvcD00JztccmEv") String secretKey) {
+			@Value("sk_test_51NI5WzCkG81qxo3fTfDBV33ncmZQ4HAPllz32n33FtR7wayXOS2DmnOWL56EzHMSNDjPcMDEEDk08OjQJpMkHvcD00JztccmEv") String secretKey) {
 
 		this.customerRepository = customerRepository;
 
