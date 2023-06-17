@@ -31,6 +31,7 @@
 			<version>2.1.6</version>
 		</dependency>
 		
+		<!-- Spring Data JPA-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -53,15 +54,32 @@
 		    <scope>provided</scope>
 		    <optional>true</optional>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- Spring Data Rest-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
+		
+		<!-- OpenAPI API Documents Dependency for Regular Controller -->
+		<dependency>
+    		<groupId>org.springdoc</groupId>
+    		<artifactId>springdoc-openapi-ui</artifactId>
+    		<version>1.7.0</version>
+		</dependency>
+		
+		<!-- OpenAPI API Documents Dependency for Spring Data Rest -->
+		<dependency>
+      		<groupId>org.springdoc</groupId>
+      		<artifactId>springdoc-openapi-data-rest</artifactId>
+      		<version>1.7.0</version>
+   		</dependency>
 	</dependencies>
 
 	<build>
