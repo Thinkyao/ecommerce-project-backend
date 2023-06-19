@@ -122,3 +122,14 @@ There are 8 tables used in this project in-order to maintain the relationship be
 
 
 ## API Documentation
+
+> **Note**
+> 
+> OpenAPI Description Path: https://localhost:8443/v3/api-docs
+> Swagger UI Path: https://localhost:8443/swagger-ui.html
+
+In this project, we are using OpenAPI 3.0 to documenting the Spring Boot based backend Restful API. Below are some screen shots. 
+
+
+
+
