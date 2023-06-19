@@ -22,9 +22,102 @@ Key Components of this backend service includes
 
 ## DB Tables & ER Map
 
+> **Note**
+> 
+> The DDL files of creating schema, users, and tables could by find under the **/DB** folder
+
 There are 8 tables used in this project in-order to maintain the relationship between **product**, **orders**, **customer**, **address**, and **country**.  
 
+
 ### Tables ER Map
+![](/assets/Table_ER_Map.png)
+
+### Tables Schemas
+
+- **orders**
+
+  | Field              | Type          | Null  |  Key  | Default | Extra           |
+  | ------------------ | ------------- | ----- | ----- | ------- | --------------- |
+  | billing_address_id | bigint        | YES   | UNI   | NULL    |                 |
+  | customer_id        | bigint        | YES   | MUL   | NULL    |                 |
+  | date_created       | datetime(6)   | YES   |       | NULL    |                 |
+  | id                 | bigint        | **NO**| PRI   | NULL    | auto_increment  |
+  | last_updated       | bigint        | YES   |       | NULL    |                 |
+  | order_tracking_number| varchar(255)| YES   |       | NULL    |                 |
+  | status             | varchar(128)  | YES   |       | NULL    |                 |
+  | total_price        | decimal(19,2) | YES   |       | NULL    |                 |
+  | total_quantity     |    int        | YES   |       | NULL    |                 |
+
+- order_item
+
+  | Field              | Type          | Null | Key | Default | Extra           |
+  | ------------------ | ------------- | ----- | ----- | ------- | --------------- |
+  | id                 | bigint        | NO   | PRI | NULL    | auto_increment |
+  | image_url          | varchar(255)  | YES  |     | NULL    |                 |
+  | quantity           | int           | YES  |     | NULL    |                 |
+  | unit_price         | decimal(19,2) | YES  |     | NULL    |                 |
+  | order_id           | bigint        | YES  | MUL | NULL    |                 |
+  | product_id         | bigint        | YES  | MUL | NULL    |                 |
+
+- customer
+
+  | Field      | Type         | Null | Key | Default | Extra          |
+  | ---------- | ------------ | ---- | --- | ------- | -------------- |
+  | id         | bigint       | NO   | PRI | NULL    | auto_increment|
+  | first_name | varchar(255) | YES  |     | NULL    |                |
+  | last_name  | varchar(255) | YES  |     | NULL    |                |
+  | email      | varchar(255) | YES  |     | NULL    |                |
+
+- country
+
+  | Field              | Type              | Null | Key | Default | Extra          |
+  | ------------------ | ----------------- | ---- | --- | ------- | -------------- |
+  | id                 | smallint unsigned | NO   | PRI |         |                |
+  | code               | varchar(2)        | YES  |     |         |                |
+  | name               | varchar(255)      | YES  |     |         |                |
+  
+- address
+
+  | Field    | Type         | Null | Key | Default | Extra          |
+  | -------- | ------------ | ---- | --- | ------- | -------------- |
+  | id       | bigint       | NO   | PRI |         | auto_increment|
+  | city     | varchar(255) | YES  |     |         |                |
+  | country  | varchar(255) | YES  |     |         |                |
+  | state    | varchar(255) | YES  |     |         |                |
+  | street   | varchar(255) | YES  |     |         |                |
+  | zip_code | varchar(255) | YES  |     |         |                |
+  
+- product
+
+  | Field          | Type            | Null | Key | Default | Extra          |
+  | -------------- | --------------- | ---- | --- | ------- | -------------- |
+  | id             | bigint          | NO   | PRI |         | auto_increment|
+  | sku            | varchar(255)    | YES  |     |         |                |
+  | name           | varchar(255)    | YES  |     |         |                |
+  | description    | varchar(255)    | YES  |     |         |                |
+  | unit_price     | decimal(13,2)   | YES  |     |         |                |
+  | image_url      | varchar(255)    | YES  |     |         |                |
+  | active         | bit(1)          | YES  |     | b'1'    |                |
+  | units_in_stock | int             | YES  |     |         |                |
+  | date_created   | datetime(6)     | YES  |     |         |                |
+  | last_updated   | datetime(6)     | YES  |     |         |                |
+  | category_id    | bigint          | NO   | MUL |         |                |
+
+- product_category
+
+  | Field           | Type         | Null | Key | Default | Extra          |
+  | --------------- | ------------ | ---- | --- | ------- | -------------- |
+  | id              | bigint       | NO   | PRI |         | auto_increment|
+  | category_name   | varchar(255) | YES  |     |         |                |
+
+- state
+
+  | Field       | Type               | Null | Key | Default | Extra          |
+  | ----------- | ------------------ | ---- | --- | ------- | -------------- |
+  | id          | smallint unsigned  | NO   | PRI |         | auto_increment|
+  | name        | varchar(255)       | YES  |     |         |                |
+  | country_id  | smallint unsigned  | NO   | MUL |         |                |
+
 
 
 
